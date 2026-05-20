@@ -20,6 +20,8 @@ _check/
 tmp/
 ~$*
 ~$*.docx
+~WRL*.tmp
+*.tmp
 
 # Source-Dateien (lokal behalten, nicht im Repo)
 *.docx

@@ -1,0 +1,30 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temp
+_extracted/
+_extracted2/
+_check/
+tmp/
+~$*
+~$*.docx
+
+# Source-Dateien (lokal behalten, nicht im Repo)
+*.docx
+images/_logo-alt-referenz.png
+
+# Dependencies (falls später)
+node_modules/
+package-lock.json

@@ -1975,74 +1975,83 @@ p { color: var(--text-mut); }
 
 
 /* --- Mobile-Collapse (Aufklappbare Sektionen nur auf Mobile) --- */
-.m-collapse > summary {
-    display: none;
-    list-style: none;
-}
+/* Default-Marker bei ALLEN <details> komplett weg */
+details summary { list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+details summary::marker { content: ""; }
 
-.m-collapse > summary::-webkit-details-marker { display: none; }
-.m-collapse > summary::marker { content: ""; }
+/* Desktop: m-collapse-Summary völlig versteckt */
+.m-collapse > summary {
+    display: none !important;
+}
 
 @media (max-width: 768px) {
     .m-collapse > summary {
-        display: flex;
+        display: flex !important;
         align-items: center;
         justify-content: space-between;
         gap: var(--space-3);
         width: 100%;
-        padding: var(--space-4) var(--space-5);
-        background: var(--weiss);
+        padding: 13px 16px;
+        background: transparent;
         border: 1px solid var(--border);
-        border-radius: var(--radius);
+        border-radius: 10px;
         font-family: var(--font-display);
-        font-weight: 700;
-        font-size: 1rem;
+        font-weight: 600;
+        font-size: 0.95rem;
         color: var(--grau-900);
         cursor: pointer;
-        margin-bottom: var(--space-4);
-        transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        margin-bottom: 0;
+        transition: border-color 0.2s ease,
+                    background 0.2s ease;
+        letter-spacing: -0.005em;
     }
 
     .m-collapse > summary:hover {
         border-color: var(--blau);
+        background: rgba(30, 58, 138, 0.03);
+    }
+
+    .m-collapse > summary:active {
+        background: rgba(30, 58, 138, 0.06);
     }
 
     .m-collapse[open] > summary {
-        background: rgba(30, 58, 138, 0.04);
         border-color: var(--blau);
-        margin-bottom: var(--space-5);
+        margin-bottom: var(--space-4);
+    }
+
+    .m-collapse > summary > span:first-child {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .m-collapse > summary .m-collapse-count {
+        font-size: 0.78rem;
+        font-weight: 500;
+        color: var(--grau-500);
+        white-space: nowrap;
+        margin-right: 4px;
     }
 
     .m-collapse > summary .m-collapse-icon {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        background: var(--grau-100);
+        width: 22px;
+        height: 22px;
         color: var(--blau);
-        transition: transform 0.3s var(--ease-spring), background 0.2s ease, color 0.2s ease;
+        transition: transform 0.3s var(--ease-out);
         flex-shrink: 0;
     }
 
     .m-collapse > summary .m-collapse-icon svg {
-        width: 14px;
-        height: 14px;
+        width: 16px;
+        height: 16px;
     }
 
     .m-collapse[open] > summary .m-collapse-icon {
-        background: var(--blau);
-        color: var(--weiss);
         transform: rotate(180deg);
-    }
-
-    .m-collapse > summary .m-collapse-count {
-        font-size: 0.8rem;
-        font-weight: 600;
-        color: var(--grau-500);
-        margin-left: auto;
-        margin-right: var(--space-2);
     }
 }
 
@@ -2295,6 +2304,44 @@ p { color: var(--text-mut); }
 @media (max-width: 768px) {
     .map-fullwidth { height: 360px; }
 }
+
+/* Downloads-Band (PDF-Box auf Kontakt-Seite) */
+.downloads-band {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-8);
+    padding: var(--space-8) var(--space-10);
+    background: var(--weiss);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--rot);
+    box-shadow: var(--shadow-sm);
+    flex-wrap: wrap;
+}
+
+.downloads-text {
+    flex: 1;
+    min-width: 280px;
+}
+
+.downloads-text h2 {
+    font-size: clamp(1.4rem, 2.5vw, 1.75rem);
+    margin-bottom: var(--space-2);
+}
+
+.downloads-text p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.downloads-actions {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+}
+
 
 /* Anfahrt-Sektion (Text + Maps nebeneinander, prominent) */
 .anfahrt-grid {

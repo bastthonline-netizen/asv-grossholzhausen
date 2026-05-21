@@ -2403,6 +2403,73 @@ details summary::marker { content: ""; }
     border: 0;
 }
 
+/* Map Consent Placeholder (DSGVO) */
+.map-consent {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        linear-gradient(135deg, rgba(30, 58, 138, 0.85) 0%, rgba(30, 58, 138, 0.95) 100%),
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 12px);
+    color: #fff;
+    padding: var(--space-6);
+    text-align: center;
+}
+.map-consent-inner {
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+}
+.map-consent-icon {
+    color: rgba(255,255,255,0.85);
+    margin-bottom: var(--space-1);
+}
+.map-consent h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+.map-consent p {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.88);
+    margin: 0 0 var(--space-2);
+}
+.map-consent p a {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.map-consent p a:hover {
+    color: rgba(255,255,255,0.8);
+}
+.map-consent .btn-primary {
+    background: #fff;
+    color: var(--blau);
+}
+.map-consent .btn-primary:hover {
+    background: rgba(255,255,255,0.92);
+    color: var(--blau-dunkel, var(--blau));
+}
+.map-consent-remember {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.8);
+    cursor: pointer;
+    margin-top: var(--space-1);
+}
+.map-consent-remember-input {
+    accent-color: #fff;
+}
+
 @media (max-width: 900px) {
     .anfahrt-grid {
         grid-template-columns: 1fr;

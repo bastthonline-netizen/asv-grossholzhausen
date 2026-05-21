@@ -1,0 +1,12 @@
+# robots.txt — ASV Großholzhausen 1930 e.V.
+
+User-agent: *
+Allow: /
+
+# Rechtsseiten nicht indexieren
+Disallow: /impressum.html
+Disallow: /datenschutz.html
+Disallow: /404.html
+
+# TODO: Domain anpassen, sobald live (z.B. https://asv-grossholzhausen.de/sitemap.xml)
+Sitemap: https://asv-grossholzhausen.de/sitemap.xml

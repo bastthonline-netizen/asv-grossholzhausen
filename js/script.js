@@ -175,4 +175,42 @@
         }
     }
 
+
+    // --- Map Consent (DSGVO-konform) ---
+    const mapContainer = document.getElementById('anfahrt-map');
+    if (mapContainer) {
+        const consent = mapContainer.querySelector('.map-consent');
+        const btn = mapContainer.querySelector('.map-consent-btn');
+        const remember = mapContainer.querySelector('.map-consent-remember-input');
+        const mapSrc = mapContainer.getAttribute('data-map-src');
+
+        const loadMap = function () {
+            const iframe = document.createElement('iframe');
+            iframe.src = mapSrc;
+            iframe.loading = 'lazy';
+            iframe.referrerPolicy = 'no-referrer-when-downgrade';
+            iframe.title = 'Karte des ASV-Sportgeländes in Großholzhausen';
+            iframe.setAttribute('aria-label', 'Google Maps Karte des Sportgeländes Sulzbergstraße 56, 83064 Großholzhausen');
+            iframe.allowFullscreen = true;
+            if (consent) consent.remove();
+            mapContainer.appendChild(iframe);
+        };
+
+        // Wenn Nutzer früher zugestimmt hat: Karte automatisch laden
+        try {
+            if (localStorage.getItem('asv-maps-consent') === 'granted') {
+                loadMap();
+            }
+        } catch (e) { /* localStorage blockiert — Placeholder bleibt */ }
+
+        if (btn) {
+            btn.addEventListener('click', function () {
+                if (remember && remember.checked) {
+                    try { localStorage.setItem('asv-maps-consent', 'granted'); } catch (e) {}
+                }
+                loadMap();
+            });
+        }
+    }
+
 })();

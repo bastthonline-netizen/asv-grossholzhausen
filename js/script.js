@@ -102,6 +102,29 @@
     updateScrollUI();
 
 
+    // --- 5b. Mobile-Collapse: details auf Mobile schließen (Desktop bleibt offen) ---
+    const mobileCollapseMq = window.matchMedia('(max-width: 768px)');
+    function syncMobileCollapse() {
+        document.querySelectorAll('details.m-collapse').forEach(function (d) {
+            if (mobileCollapseMq.matches) {
+                if (d.dataset.userToggled !== 'true') d.removeAttribute('open');
+            } else {
+                d.setAttribute('open', '');
+                d.dataset.userToggled = 'false';
+            }
+        });
+    }
+    document.querySelectorAll('details.m-collapse').forEach(function (d) {
+        d.addEventListener('toggle', function () {
+            if (mobileCollapseMq.matches) d.dataset.userToggled = 'true';
+        });
+    });
+    if (mobileCollapseMq.addEventListener) {
+        mobileCollapseMq.addEventListener('change', syncMobileCollapse);
+    }
+    syncMobileCollapse();
+
+
     // --- 6. FAQ-Accordion (eigenes Toggle für smooth Grid-Animation) ---
     document.querySelectorAll('.faq-trigger').forEach(function (trigger) {
         trigger.addEventListener('click', function () {

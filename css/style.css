@@ -1974,6 +1974,79 @@ p { color: var(--text-mut); }
 }
 
 
+/* --- Mobile-Collapse (Aufklappbare Sektionen nur auf Mobile) --- */
+.m-collapse > summary {
+    display: none;
+    list-style: none;
+}
+
+.m-collapse > summary::-webkit-details-marker { display: none; }
+.m-collapse > summary::marker { content: ""; }
+
+@media (max-width: 768px) {
+    .m-collapse > summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+        width: 100%;
+        padding: var(--space-4) var(--space-5);
+        background: var(--weiss);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--grau-900);
+        cursor: pointer;
+        margin-bottom: var(--space-4);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .m-collapse > summary:hover {
+        border-color: var(--blau);
+    }
+
+    .m-collapse[open] > summary {
+        background: rgba(30, 58, 138, 0.04);
+        border-color: var(--blau);
+        margin-bottom: var(--space-5);
+    }
+
+    .m-collapse > summary .m-collapse-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--grau-100);
+        color: var(--blau);
+        transition: transform 0.3s var(--ease-spring), background 0.2s ease, color 0.2s ease;
+        flex-shrink: 0;
+    }
+
+    .m-collapse > summary .m-collapse-icon svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .m-collapse[open] > summary .m-collapse-icon {
+        background: var(--blau);
+        color: var(--weiss);
+        transform: rotate(180deg);
+    }
+
+    .m-collapse > summary .m-collapse-count {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--grau-500);
+        margin-left: auto;
+        margin-right: var(--space-2);
+    }
+}
+
+
 /* --- 23. Utilities --- */
 .text-center { text-align: center; }
 .mt-auto { margin-top: auto; }

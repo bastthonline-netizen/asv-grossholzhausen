@@ -496,43 +496,44 @@ p { color: var(--text-mut); }
 
 
 /* --- 7. Hero --- */
+/* --- HERO (Startseite, Variante 3 v2: Heller BG + blauer Bild-Akzent) --- */
 .hero {
     position: relative;
-    padding: var(--space-16) 0 var(--space-12);
-    background: linear-gradient(135deg, var(--blau-dunkel) 0%, var(--blau) 50%, var(--blau-hell) 100%);
-    color: var(--weiss);
+    padding: var(--space-12) 0 var(--space-10);
+    background: linear-gradient(180deg, #ffffff 0%, var(--grau-50) 100%);
+    color: var(--grau-900);
     overflow: hidden;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(circle at 80% 20%, rgba(214, 40, 40, 0.25) 0%, transparent 50%),
-        radial-gradient(circle at 10% 90%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
-    pointer-events: none;
 }
 
 .hero-inner {
     position: relative;
     z-index: 1;
-    max-width: 880px;
+    max-width: 1200px;
     margin: 0 auto;
-    text-align: center;
+    padding: 0 var(--space-6);
 }
+
+.hero-split {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: var(--space-10);
+    align-items: center;
+}
+
+.hero-text { position: relative; }
 
 .hero-badge {
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
     padding: var(--space-2) var(--space-4);
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: var(--grau-100);
+    border: 1px solid var(--grau-200);
     border-radius: var(--radius-full);
     font-size: 0.875rem;
-    font-weight: 500;
-    margin-bottom: var(--space-6);
+    font-weight: 600;
+    color: var(--blau);
+    margin-bottom: var(--space-5);
 }
 
 .hero-badge .dot {
@@ -540,84 +541,137 @@ p { color: var(--text-mut); }
     height: 8px;
     border-radius: 50%;
     background: var(--rot);
-    box-shadow: 0 0 0 4px rgba(214, 40, 40, 0.25);
+    box-shadow: 0 0 0 4px rgba(214, 40, 40, 0.18);
 }
 
 .hero h1 {
-    color: var(--weiss);
+    color: var(--grau-900);
     margin-bottom: var(--space-5);
-    font-size: clamp(2.25rem, 6.5vw, 4.5rem);
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
     font-weight: 800;
-    letter-spacing: -0.035em;
-    line-height: 1.02;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
 }
 
 .hero h1 .accent {
-    color: #ffd166;
-    font-style: italic;
-    position: relative;
+    color: var(--rot);
     white-space: nowrap;
     display: inline-block;
 }
 
-.hero h1 .accent::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -0.15em;
-    height: 0.18em;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'><path d='M2 8 Q 50 2 100 7 T 198 5' stroke='%23ffd166' stroke-width='3' fill='none' stroke-linecap='round'/></svg>");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-
-@media (max-width: 560px) {
-    .hero h1 .accent { white-space: normal; }
-}
-
 .hero-motto {
-    font-size: 1.125rem;
-    line-height: 1.55;
-    color: rgba(255, 255, 255, 0.9);
-    max-width: 680px;
-    margin: 0 auto var(--space-6);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--grau-600);
+    max-width: 480px;
+    margin: 0 0 var(--space-6);
 }
 
 .hero-actions {
     display: flex;
     gap: var(--space-3);
-    justify-content: center;
     flex-wrap: wrap;
 }
 
+/* Bild rechts mit blauem Offset-Layer dahinter */
+.hero-image-wrap {
+    position: relative;
+    padding: 0 var(--space-6) var(--space-6) 0;
+}
+
+.hero-image-wrap::before {
+    content: "";
+    position: absolute;
+    top: var(--space-6);
+    right: 0;
+    bottom: 0;
+    left: var(--space-6);
+    background: linear-gradient(135deg, var(--blau) 0%, #2c4ea8 100%);
+    border-radius: var(--radius-lg);
+    z-index: 0;
+}
+
+.hero-image {
+    position: relative;
+    z-index: 1;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.08),
+        0 24px 60px -15px rgba(0, 0, 0, 0.35);
+    aspect-ratio: 16 / 11;
+    background: var(--grau-100);
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Stats unter Split, dunkel auf hell */
 .hero-stats {
+    position: relative;
+    z-index: 1;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--space-5);
-    margin-top: var(--space-10);
-    padding-top: var(--space-8);
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin: var(--space-12) auto 0;
+    padding: var(--space-8) var(--space-6) 0;
+    border-top: 1px solid var(--grau-200);
+    max-width: 1200px;
 }
 
-.hero-stat { text-align: center; }
+.hero-stat { text-align: left; }
 
 .hero-stat-num {
     display: block;
     font-family: var(--font-display);
     font-size: clamp(1.75rem, 3vw, 2.5rem);
     font-weight: 800;
-    color: var(--weiss);
+    color: var(--grau-900);
     line-height: 1;
+    letter-spacing: -0.02em;
 }
 
 .hero-stat-label {
     display: block;
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+    color: var(--grau-500);
     margin-top: var(--space-2);
     text-transform: uppercase;
     letter-spacing: 0.08em;
+    font-weight: 500;
+}
+
+/* === MOBILE: Hero radikal entrümpelt === */
+@media (max-width: 900px) {
+    .hero { padding: var(--space-8) 0 var(--space-6); }
+    .hero-split {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+    .hero-image-wrap {
+        order: -1;
+        padding: 0;
+    }
+    .hero-image-wrap::before { display: none; }
+    .hero-image {
+        aspect-ratio: 16 / 9;
+        max-height: 220px;
+        box-shadow:
+            0 1px 2px rgba(0, 0, 0, 0.08),
+            0 12px 30px -10px rgba(30, 58, 138, 0.35);
+    }
+    .hero h1 { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+    .hero-motto { font-size: 1rem; max-width: 100%; }
+    .hero-actions .btn:not(.btn-primary) { display: none; }
+    .hero-stats { display: none; }
+}
+
+@media (max-width: 560px) {
+    .hero h1 .accent { white-space: normal; }
 }
 
 
@@ -2513,16 +2567,8 @@ details summary::marker { content: ""; }
     --topo-pattern: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800' preserveAspectRatio='none'><g fill='none' stroke='%23ffffff' stroke-width='1' opacity='0.07'><path d='M-50,150 Q150,100 350,140 T800,120'/><path d='M-50,200 Q150,160 350,190 T800,180'/><path d='M-50,260 Q200,210 400,250 T850,240'/><path d='M-50,330 Q180,280 380,320 T820,310'/><path d='M-50,420 Q200,370 400,410 T850,400'/><path d='M-50,500 Q170,450 370,490 T800,480'/><path d='M-50,580 Q200,530 400,570 T850,560'/><path d='M-50,660 Q180,610 380,650 T820,640'/></g></svg>");
 }
 
-.hero {
-    background-color: var(--blau-dunkel);
-    background-image:
-        var(--topo-pattern),
-        linear-gradient(135deg, rgba(21, 42, 99, 0.92) 0%, rgba(30, 58, 138, 0.85) 50%, rgba(44, 79, 176, 0.80) 100%),
-        var(--bg-image, none);
-    background-size: 100% 100%, 100% 100%, cover;
-    background-position: center, center, center;
-    background-repeat: no-repeat, no-repeat, no-repeat;
-}
+/* Hero-Override entfernt — Variante 3 v2 hat eigenen hellen Background.
+   .page-header (Abteilungs-Seiten) behält das Topo-Pattern + Blau-Gradient. */
 
 .page-header {
     background-color: var(--blau-dunkel);

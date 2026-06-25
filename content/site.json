@@ -1,0 +1,32 @@
+{
+  "schuhbraeualmlauf_url": "https://my.raceresult.com/399281/registration",
+  "belegung_sportheim_url": "https://onedrive.live.com/view.aspx?resid=8130C11133672C28!124&ithint=file%2cxlsx&authkey=!ABzH3FUoj-FQWik",
+  "belegung_bus_url": "https://onedrive.live.com/view.aspx?resid=8130C11133672C28!124&ithint=file%2cxlsx&authkey=!ABzH3FUoj-FQWik",
+  "kontakte": {
+    "fussball": { "name": "", "tel": "", "email": "fussball@asv-grossholzhausen.de" },
+    "tennis": { "name": "", "tel": "", "email": "tennis@asv-grossholzhausen.de" },
+    "ski": { "name": "", "tel": "", "email": "ski@asv-grossholzhausen.de" },
+    "taekwondo": { "name": "", "tel": "", "email": "taekwondo@asv-grossholzhausen.de" }
+  },
+  "vorstand": {
+    "vorsitzender_1": "Moritz Zehetmair",
+    "vorsitzender_2": "",
+    "kassier": "",
+    "schriftfuehrer": ""
+  },
+  "jugendleiter": {
+    "fussball_kleinfeld": { "name": "", "tel": "", "email": "" },
+    "fussball_grossfeld": { "name": "", "tel": "", "email": "" },
+    "tennis": { "name": "", "tel": "", "email": "" }
+  },
+  "bilder": {
+    "drohne": "",
+    "vereinsbus": "",
+    "vorstand": {
+      "vorsitzender_1": "",
+      "vorsitzender_2": "",
+      "kassier": "",
+      "schriftfuehrer": ""
+    }
+  }
+}

@@ -138,6 +138,10 @@
                             gelegentliche kleine Feste, die von Fußballern, Tennisspielern
                             oder anderen Mitgliedern privat organisiert werden.
                         </p>
+                        <p style="margin-top:0.75rem;">
+                            <!-- Vereinsheim-Belegung (Excel) — im /admin pflegbar (content/site.json) -->
+                            <a href="https://onedrive.live.com/view.aspx?resid=8130C11133672C28!124&amp;ithint=file%2cxlsx&amp;authkey=!ABzH3FUoj-FQWik" target="_blank" rel="noopener" data-cms-link="belegung-sportheim" data-todo="vereinsheim-belegung" style="color: var(--blau); font-weight: 600;">Belegungsplan ansehen (Excel) &rarr;</a>
+                        </p>
                     </div>
                 </div>
 
@@ -155,7 +159,7 @@
                 </div>
 
                 <div class="info-card has-image">
-                    <div class="info-card-image is-placeholder">
+                    <div class="info-card-image is-placeholder" data-cms-photo="bilder.vereinsbus" data-cms-alt="Vereinsbus des ASV Großholzhausen">
                         <div>
                             <span class="placeholder-label">Foto</span>
                             <p class="placeholder-text">Vereinsbus — Foto folgt</p>
@@ -166,6 +170,10 @@
                         <p>
                             Eigener Bus für Auswärtsspiele, Skitouren und Vereinsausflüge —
                             gemeinsam unterwegs, gemeinsam stark.
+                        </p>
+                        <p style="margin-top:0.75rem;">
+                            <!-- Bus-Belegung (Excel) — im /admin pflegbar (content/site.json) -->
+                            <a href="https://onedrive.live.com/view.aspx?resid=8130C11133672C28!124&amp;ithint=file%2cxlsx&amp;authkey=!ABzH3FUoj-FQWik" target="_blank" rel="noopener" data-cms-link="belegung-bus" data-todo="bus-belegung" style="color: var(--blau); font-weight: 600;">Bus-Belegung ansehen (Excel) &rarr;</a>
                         </p>
                     </div>
                 </div>
@@ -187,7 +195,7 @@
 
             <div class="info-grid">
                 <div class="info-card">
-                    <div class="image-placeholder square" style="margin-bottom: 1rem;">
+                    <div class="image-placeholder square" style="margin-bottom: 1rem;" data-cms-photo="bilder.vorstand.vorsitzender_1" data-cms-alt="Portrait Moritz Zehetmair, 1. Vorstand">
                         <div class="image-placeholder-content">
                             <span class="image-placeholder-label">Foto</span>
                             <p class="image-placeholder-title">Moritz Zehetmair</p>
@@ -197,12 +205,12 @@
                             </p>
                         </div>
                     </div>
-                    <h3>Moritz Zehetmair</h3>
+                    <h3 data-cms-text="vorstand.vorsitzender_1">Moritz Zehetmair</h3>
                     <p class="meta">1. Vorstand</p>
                 </div>
 
                 <div class="info-card">
-                    <div class="image-placeholder square" style="margin-bottom: 1rem;">
+                    <div class="image-placeholder square" style="margin-bottom: 1rem;" data-cms-photo="bilder.vorstand.vorsitzender_2" data-cms-alt="Portrait 2. Vorstand">
                         <div class="image-placeholder-content">
                             <span class="image-placeholder-label">Foto</span>
                             <p class="image-placeholder-title">Name 2. Vorstand</p>
@@ -212,12 +220,12 @@
                             </p>
                         </div>
                     </div>
-                    <h3>[Name folgt]</h3>
+                    <h3 data-cms-text="vorstand.vorsitzender_2">[Name folgt]</h3>
                     <p class="meta">2. Vorstand</p>
                 </div>
 
                 <div class="info-card">
-                    <div class="image-placeholder square" style="margin-bottom: 1rem;">
+                    <div class="image-placeholder square" style="margin-bottom: 1rem;" data-cms-photo="bilder.vorstand.kassier" data-cms-alt="Portrait Kassier / Schatzmeister">
                         <div class="image-placeholder-content">
                             <span class="image-placeholder-label">Foto</span>
                             <p class="image-placeholder-title">Name Kassier</p>
@@ -227,12 +235,12 @@
                             </p>
                         </div>
                     </div>
-                    <h3>[Name folgt]</h3>
+                    <h3 data-cms-text="vorstand.kassier">[Name folgt]</h3>
                     <p class="meta">Kassier / Schatzmeister</p>
                 </div>
 
                 <div class="info-card">
-                    <div class="image-placeholder square" style="margin-bottom: 1rem;">
+                    <div class="image-placeholder square" style="margin-bottom: 1rem;" data-cms-photo="bilder.vorstand.schriftfuehrer" data-cms-alt="Portrait Schriftführer">
                         <div class="image-placeholder-content">
                             <span class="image-placeholder-label">Foto</span>
                             <p class="image-placeholder-title">Name Schriftführer</p>
@@ -242,7 +250,7 @@
                             </p>
                         </div>
                     </div>
-                    <h3>[Name folgt]</h3>
+                    <h3 data-cms-text="vorstand.schriftfuehrer">[Name folgt]</h3>
                     <p class="meta">Schriftführer</p>
                 </div>
             </div>
@@ -473,6 +481,24 @@
         </div>
     </section>
 
+    <!-- ============== SERVICE: DOWNLOADS & BELEGUNG ============== -->
+    <section class="section" id="service">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="eyebrow">Service</span>
+                <h2>Satzung &amp; Dokumente</h2>
+                <p class="lead">
+                    Wichtige Vereinsdokumente &ndash; direkt zum Öffnen.
+                    Die Belegungspläne findest du oben bei Vereinsheim und Vereinsbus.
+                </p>
+            </div>
+            <div class="reveal" style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
+                <!-- TODO: Satzung als documents/satzung.pdf ablegen (liegt auf der alten Website) -->
+                <a href="documents/satzung.pdf" target="_blank" rel="noopener" class="btn btn-primary btn-arrow">Vereinssatzung (PDF)</a>
+            </div>
+        </div>
+    </section>
+
     <!-- ============== SPONSOREN ============== -->
     <section class="section">
         <div class="container">
@@ -558,5 +584,6 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="assets/cms-content.js" defer></script>
 </body>
 </html>

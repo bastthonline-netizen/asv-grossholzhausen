@@ -1,0 +1,122 @@
+# Sveltia / Decap CMS – Konfiguration
+# Login + Speichern laufen ueber GitHub (git-basiert).
+backend:
+  name: github
+  repo: bastthonline-netizen/asv-grossholzhausen
+  branch: main
+  # base_url: Auth-Proxy fuer den GitHub-Login. Einmalig einrichten
+  # (sveltia-cms-auth als Cloudflare Worker) und hier eintragen:
+  # base_url: https://DEIN-AUTH-PROXY.workers.dev
+
+# Bild-Uploads landen hier im Repo:
+media_folder: "images/uploads"
+public_folder: "images/uploads"
+
+# Oberflaeche auf Deutsch
+locale: de
+
+collections:
+  - name: "inhalte"
+    label: "Website-Inhalte"
+    description: "Hier pflegt der Verein die Inhalte, die sich aendern."
+    files:
+      - name: "ansprechpartner_und_links"
+        label: "Ansprechpartner & Links"
+        file: "content/site.json"
+        description: "Namen der Abteilungs-Ansprechpartner sowie Anmelde- und Belegungs-Links."
+        fields:
+          - label: "Schuhbräualmlauf – Anmelde-Link"
+            name: "schuhbraeualmlauf_url"
+            widget: "string"
+            required: false
+            hint: "Ändert sich jedes Jahr. Den neuen raceresult-Link hier einfügen."
+          - label: "Belegungsplan Sportheim (Excel-Link)"
+            name: "belegung_sportheim_url"
+            widget: "string"
+            required: false
+          - label: "Belegungsplan Vereinsbus (Excel-Link)"
+            name: "belegung_bus_url"
+            widget: "string"
+            required: false
+          - label: "Abteilungs-Ansprechpartner"
+            name: "kontakte"
+            widget: "object"
+            fields:
+              - label: "Fußball"
+                name: "fussball"
+                widget: "object"
+                fields:
+                  - { label: "Name", name: "name", widget: "string", required: false }
+                  - { label: "Telefon", name: "tel", widget: "string", required: false }
+                  - { label: "E-Mail", name: "email", widget: "string", required: false }
+              - label: "Tennis"
+                name: "tennis"
+                widget: "object"
+                fields:
+                  - { label: "Name", name: "name", widget: "string", required: false }
+                  - { label: "Telefon", name: "tel", widget: "string", required: false }
+                  - { label: "E-Mail", name: "email", widget: "string", required: false }
+              - label: "Ski"
+                name: "ski"
+                widget: "object"
+                fields:
+                  - { label: "Name", name: "name", widget: "string", required: false }
+                  - { label: "Telefon", name: "tel", widget: "string", required: false }
+                  - { label: "E-Mail", name: "email", widget: "string", required: false }
+              - label: "Taekwondo"
+                name: "taekwondo"
+                widget: "object"
+                fields:
+                  - { label: "Name", name: "name", widget: "string", required: false }
+                  - { label: "Telefon", name: "tel", widget: "string", required: false }
+                  - { label: "E-Mail", name: "email", widget: "string", required: false }
+          - label: "Vorstand & Vereinsführung"
+            name: "vorstand"
+            widget: "object"
+            hint: "Namen der Vorstandsmitglieder (erscheinen auf der Seite „Verein“). Die Rollen-Bezeichnungen sind fest."
+            fields:
+              - { label: "1. Vorstand – Name", name: "vorsitzender_1", widget: "string", required: false }
+              - { label: "2. Vorstand – Name", name: "vorsitzender_2", widget: "string", required: false }
+              - { label: "Kassier / Schatzmeister – Name", name: "kassier", widget: "string", required: false }
+              - { label: "Schriftführer – Name", name: "schriftfuehrer", widget: "string", required: false }
+          - label: "Jugendleiter (Fußball & Tennis)"
+            name: "jugendleiter"
+            widget: "object"
+            hint: "Ansprechpartner der Jugend. Name, Telefon und E-Mail erscheinen auf den Abteilungsseiten."
+            fields:
+              - label: "Fußball – Jugendleiter Kleinfeld"
+                name: "fussball_kleinfeld"
+                widget: "object"
+                fields:
+                  - { label: "Name", name: "name", widget: "string", required: false }
+                  - { label: "Telefon", name: "tel", widget: "string", required: false }
+                  - { label: "E-Mail", name: "email", widget: "string", required: false }
+              - label: "Fußball – Jugendleiter Großfeld"
+                name: "fussball_grossfeld"
+                widget: "object"
+                fields:
+                  - { label: "Name", name: "name", widget: "string", required: false }
+                  - { label: "Telefon", name: "tel", widget: "string", required: false }
+                  - { label: "E-Mail", name: "email", widget: "string", required: false }
+              - label: "Tennis – Jugendleiter"
+                name: "tennis"
+                widget: "object"
+                fields:
+                  - { label: "Name", name: "name", widget: "string", required: false }
+                  - { label: "Telefon", name: "tel", widget: "string", required: false }
+                  - { label: "E-Mail", name: "email", widget: "string", required: false }
+          - label: "Bilder"
+            name: "bilder"
+            widget: "object"
+            hint: "Fotos hochladen. Solange leer, bleibt der graue Platzhalter stehen. Empfohlen: Querformat für Drohne/Bus, quadratisch für Portraits."
+            fields:
+              - { label: "Drohnenfoto Sportgelände (Startseite)", name: "drohne", widget: "image", required: false, hint: "Querformat, ca. 1600×1000 px." }
+              - { label: "Vereinsbus (Seite „Verein“)", name: "vereinsbus", widget: "image", required: false }
+              - label: "Vorstands-Portraits"
+                name: "vorstand"
+                widget: "object"
+                fields:
+                  - { label: "1. Vorstand – Foto", name: "vorsitzender_1", widget: "image", required: false, hint: "Quadratisch, ca. 600×600 px." }
+                  - { label: "2. Vorstand – Foto", name: "vorsitzender_2", widget: "image", required: false }
+                  - { label: "Kassier – Foto", name: "kassier", widget: "image", required: false }
+                  - { label: "Schriftführer – Foto", name: "schriftfuehrer", widget: "image", required: false }
